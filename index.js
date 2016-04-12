@@ -35,8 +35,8 @@ if (!isProduction) {
 }
 
 
-app.get('/', function (req, res) {
-  res.sendFile(publicPath + '/index.html');
+app.get('/*', function (req, res) {
+  res.sendFile(publicPath + '/index.html', { root: __dirname });
 });
 
 app.listen(port, function () {

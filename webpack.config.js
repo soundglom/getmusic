@@ -2,10 +2,11 @@ var webpack = require('webpack');
 var path = require('path');
 
 module.exports = {
+  devtool: 'inline-source-map',
   context: __dirname,
   entry: [
     'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
-    './app/app.js'
+    './client/app/app.js'
   ],
   output: {
     path: path.join(__dirname, 'dist/'),
@@ -19,7 +20,10 @@ module.exports = {
   ],
   module: {
     loaders: [
-      { test: /\.js$/, exclude: /node_modules/, loader: 'babel' }
+      { test: /\.js$/, exclude: /node_modules/, loader: 'ng-annotate!babel' },
+      { test: /\.html$/, loader: 'raw' },
+      { test: /\.scss$/, loader: 'style!css!sass' },
+      { test: /\.css$/, loader: 'style!css' }
     ]
   }
 }
