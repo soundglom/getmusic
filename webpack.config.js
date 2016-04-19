@@ -13,6 +13,7 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: '/dist/'
   },
+  // watch: true,
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
@@ -20,9 +21,10 @@ module.exports = {
   ],
   module: {
     loaders: [
+      { test: /\.json$/, loader: "json-loader" },
       { test: /\.js$/, exclude: /node_modules/, loader: 'ng-annotate!babel' },
       { test: /\.html$/, loader: 'raw' },
-      { test: /\.scss$/, loader: 'style!css!sass' },
+      { test: /\.styl$/, loader: 'style!css!stylus' },
       { test: /\.css$/, loader: 'style!css' }
     ]
   }

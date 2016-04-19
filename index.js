@@ -91,9 +91,9 @@ if (!isProduction) {
   }));
 }
 
-app.get('/', function (req, res) {
-  res.sendFile(publicPath + '/index.html', { root: __dirname });
-});
+// app.get('/', function (req, res) {
+//   res.sendFile(publicPath + '/index.html', { root: __dirname });
+// });
 
 app.get('/events', function (err, req, res, next) {
   // 

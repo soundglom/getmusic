@@ -33,8 +33,8 @@ class HomeController {
 
 
     $http.get('/events')
-      .then(data => {
-        console.log(data);
+      .then(res => {
+        console.log(res.data);
       })
       
 
