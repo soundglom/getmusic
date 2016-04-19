@@ -1,6 +1,5 @@
 import angular from 'angular';
-import './app2.js';
-// console.log(angular);
+
 
 
 
