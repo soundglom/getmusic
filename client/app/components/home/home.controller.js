@@ -2,6 +2,7 @@ const ebUrl = 'https://www.eventbriteapi.com/v3/events/search/?sort_by=date&venu
 class HomeController {
   constructor($http, $q) {
     this.name = 'home';
+    this.events = [];
     console.log('This works')
     
     const formatData = (source, dest) => {
@@ -34,7 +35,10 @@ class HomeController {
 
     $http.get('/events')
       .then(res => {
-        console.log(res.data);
+        // console.log(res.data);
+        res.data.events.forEach( (event) => {
+          this.events.push(event);
+        });
       })
       
 
